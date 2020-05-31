@@ -1,10 +1,12 @@
 package com.Tourisme.microTourisme.Controllers;
 
 
+import com.Tourisme.microTourisme.Model.Services.Favoris;
 import com.Tourisme.microTourisme.Model.Services.Parpff;
 import com.Tourisme.microTourisme.Model.Services.Participation;
 import com.Tourisme.microTourisme.Model.Services.Voyage;
 import com.Tourisme.microTourisme.Model.Services.Voyageur;
+import com.Tourisme.microTourisme.Model.Services.Repository.FavorisRepository;
 import com.Tourisme.microTourisme.Model.Services.Repository.ParpffRepository;
 import com.Tourisme.microTourisme.Model.Services.Repository.ParticipationRepository;
 import com.Tourisme.microTourisme.Model.Services.Repository.VoyageRepository;
@@ -31,6 +33,8 @@ public class RestController {
     private VoyageRepository voyageRepository;
     @Autowired
     private VoyageurRepository voyageurRepository;
+    @Autowired
+   	private FavorisRepository favorisRepository;
     
     @GetMapping("/voyages")
     public ArrayList<Voyage> listeVoyage(){
@@ -69,6 +73,7 @@ public class RestController {
     public Optional<Participation> ParticipationById(@PathVariable Integer id){
         return participationRepository.findById(id);
     }
+    
     @RequestMapping(value = "/participations/delete/{id}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public void delete(@PathVariable Integer id) {
@@ -98,6 +103,34 @@ public class RestController {
    }
     
     
+    @GetMapping("/favoris")
+    @ResponseBody
+    public ArrayList<Favoris> idvoy(@RequestParam("mail") String mail){
+    Voyageur voyageur = new Voyageur();
+    voyageur=voyageurRepository.findByMailContains(mail);
+	return (ArrayList<Favoris>) favorisRepository.findAllByIdVoyageur(voyageur.getIdVoyageur());
+  }
+	@GetMapping("/favoriss")
+    public ArrayList<Favoris> listeFavoris(){
+	    return (ArrayList<Favoris>) favorisRepository.findAll();
+  }
+    @RequestMapping(value = "/favoris/delete/{id}" , method = RequestMethod.DELETE)
+    @ResponseBody
+    public void delete2(@PathVariable Integer id) {
+	    favorisRepository.deleteById(id);
+    }
+
+    @PostMapping("/favoris")
+     public Favoris  favorissave(@RequestBody Map<String, String> body) {
+        Voyage voyage = new Voyage();
+        Voyageur voyageur = new Voyageur();
+        String destination=(body.get("destination"));
+        String mail=body.get("mail");
+        String nom_favoris=(body.get("nom_favoris"));
+        voyageur=voyageurRepository.findByMailContains(mail);
+        voyage=voyageRepository.findByDestinationContains(destination);
+        return favorisRepository.save(new Favoris(voyage.getIdVoyage(),voyageur.getIdVoyageur(),nom_favoris,voyage.getDescription(),voyage.getPrix(),voyageur.getMail()) );
+    }
     
     
     
