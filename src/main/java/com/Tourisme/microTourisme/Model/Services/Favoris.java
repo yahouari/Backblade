@@ -1,6 +1,6 @@
 package com.Tourisme.microTourisme.Model.Services;
 
-import java.io.Serializable;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,15 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Table(name = "favoris")
 
-public class Favoris implements Serializable {
+public class Favoris {
 	
 	@Id
 	@Column(name="id_favoris")

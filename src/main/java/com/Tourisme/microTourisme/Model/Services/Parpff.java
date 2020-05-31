@@ -1,6 +1,7 @@
 package com.Tourisme.microTourisme.Model.Services;
 
-import java.io.Serializable;
+
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -12,16 +13,12 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 
 @Entity
 @Table(name = "Parpff")
 
-public class Parpff implements Serializable {
+public class Parpff  {
 	 
 	@Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
