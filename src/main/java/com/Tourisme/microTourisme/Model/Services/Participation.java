@@ -21,9 +21,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name = "participation")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Participation {
     @Id
 	@Column(name="idParticipation")

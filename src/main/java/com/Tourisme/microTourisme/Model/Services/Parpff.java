@@ -20,10 +20,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name = "Parpff")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+
 public class Parpff implements Serializable {
 	 
 	@Id
@@ -37,7 +34,59 @@ public class Parpff implements Serializable {
     @CreationTimestamp
     private Date dateParticipation;
 
-    public Parpff(String nom2, String destination2, int prix2, int nombreDePersonnes2) {
+    public Parpff() {
+		super();
+	}
+
+	public Integer getIdpff() {
+		return idpff;
+	}
+
+	public void setIdpff(Integer idpff) {
+		this.idpff = idpff;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getDestination() {
+		return destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public int getPrix() {
+		return prix;
+	}
+
+	public void setPrix(int prix) {
+		this.prix = prix;
+	}
+
+	public int getNombreDePersonnes() {
+		return nombreDePersonnes;
+	}
+
+	public void setNombreDePersonnes(int nombreDePersonnes) {
+		this.nombreDePersonnes = nombreDePersonnes;
+	}
+
+	public Date getDateParticipation() {
+		return dateParticipation;
+	}
+
+	public void setDateParticipation(Date dateParticipation) {
+		this.dateParticipation = dateParticipation;
+	}
+
+	public Parpff(String nom2, String destination2, int prix2, int nombreDePersonnes2) {
 		super();
 		this.nom=nom2;
 		this.destination=destination2;
