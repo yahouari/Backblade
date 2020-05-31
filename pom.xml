@@ -72,7 +72,7 @@
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
-			<version>2.7.8</version>
+			
 
 		</dependency>
 		<dependency>
@@ -82,24 +82,26 @@
 
 		</dependency>
 
-<dependency>
-   <groupId>commons-configuration</groupId>
-   <artifactId>commons-configuration</artifactId>
-   <version>1.9</version>
-</dependency>
-<dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-thymeleaf</artifactId>
-</dependency>
+		<dependency>
+   			<groupId>commons-configuration</groupId>
+   			<artifactId>commons-configuration</artifactId>
+   			<version>1.9</version>
+		</dependency>
+		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			</dependency>
  
 
 	</dependencies>
 
 	<build>
+	<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+	</plugins>
 		
 	</build>
 
