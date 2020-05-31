@@ -30,5 +30,17 @@ public class MicroTourismeApplication implements CommandLineRunner {
 });*/
 		}
 	
+/*server.port=9090
 
+spring.datasource.url=jdbc:mysql://localhost:3306/participationschema?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=
+
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+spring.jpa.database=MYSQL
+spring.jpa.show-sql = true
+spring.jpa.hibernate.ddl-auto = update
+spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect*/
 }
